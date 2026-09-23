@@ -645,8 +645,8 @@ def clean_telegram_content(text: str) -> str:
     # CommonMark uses `` `code` `` to escape backticks inside code spans.
     # Telegram MarkdownV2 only supports single `code`. Normalize multi-backtick spans.
     text = re.sub(r"``+\s*`?([^`\n]+?)`?\s*``+", r"`\1`", text)
-    for i, f in enumerate(fences):
-        text = text.replace(f"\x00FENCE_{len(fences)-1-i}\x00", f)
+    for idx in range(len(fences) - 1, -1, -1):
+        text = text.replace(f"\x00FENCE_{idx}\x00", fences[idx])
 
     # 1. Stash fenced code blocks and inline code so they remain untouched
     code_blocks: list[str] = []
@@ -674,9 +674,9 @@ def clean_telegram_content(text: str) -> str:
     # 5. Convert line-start list markers (* and -) to clean bullets
     text = re.sub(r"^(\s*)[*-] ", r"\1• ", text, flags=re.MULTILINE)
 
-    # 6. Restore preserved code blocks
-    for idx, cb in enumerate(code_blocks):
-        text = text.replace(f"\x00CODE_{idx}\x00", cb)
+    # 6. Restore preserved code blocks in reverse index order
+    for idx in range(len(code_blocks) - 1, -1, -1):
+        text = text.replace(f"\x00CODE_{idx}\x00", code_blocks[idx])
 
     # 7. Normalize nested bold-around-code **`code`** to `code`
     text = re.sub(r"\*\*`([^`]+)`\*\*", r"`\1`", text)

@@ -40,6 +40,25 @@ class TestFormatting(unittest.TestCase):
         self.assertIn("`foo`", cleaned)
         self.assertNotIn("``", cleaned)
 
+    def test_clean_telegram_content_preserves_code_block_order(self):
+        raw = """1. First:
+```bash
+echo first
+```
+2. Second:
+```bash
+echo second
+```
+3. Third:
+```bash
+echo third
+```"""
+        cleaned = clean_telegram_content(raw)
+        pos_first = cleaned.find("echo first")
+        pos_second = cleaned.find("echo second")
+        pos_third = cleaned.find("echo third")
+        self.assertTrue(pos_first < pos_second < pos_third, "Code block order was corrupted!")
+
     def test_format_patch_short(self):
         args = {
             "path": "src/main.py",
