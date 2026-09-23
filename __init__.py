@@ -409,7 +409,7 @@ STATUS_SCHEMA = {
 def format_telegram_verbose_tool(tool_name: str, args: Optional[Dict[str, Any]], preview: Optional[str] = None) -> str:
     """Format tool progress event cleanly for Telegram verbose mode."""
     args = args or {}
-    badge = "`[~]`"
+    badge = "[~]"
 
     if tool_name == "terminal":
         cmd = str(args.get("command", "")).strip()
