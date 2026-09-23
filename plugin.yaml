@@ -1,0 +1,11 @@
+name: telegram-minimal
+version: "1.0.0"
+description: Minimalist, emoji-free Telegram UX for Hermes Agent — clean monospace tokens, syntax-highlighted tool progress, LaTeX math normalization, and bulletproof MarkdownV2 delivery.
+author: jtnqr
+license: MIT
+repository: https://github.com/jtnqr/hermes-telegram-minimal
+provides_tools:
+  - telegram_send_card
+  - telegram_send_status
+provides_hooks:
+  - transform_llm_output
