@@ -33,6 +33,13 @@ class TestFormatting(unittest.TestCase):
         self.assertIn("```python\n# Do not touch emojis here: 🚀\nx = 1\n```", cleaned)
         self.assertTrue("[+]" in cleaned or "[i]" in cleaned)
 
+    def test_clean_telegram_content_multi_backtick_normalization(self):
+        raw = "With backticks (`` `[~]` ``) and ``foo``"
+        cleaned = clean_telegram_content(raw)
+        self.assertIn("`[~]`", cleaned)
+        self.assertIn("`foo`", cleaned)
+        self.assertNotIn("``", cleaned)
+
     def test_format_patch_short(self):
         args = {
             "path": "src/main.py",

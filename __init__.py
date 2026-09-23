@@ -635,6 +635,19 @@ def clean_telegram_content(text: str) -> str:
     if not text:
         return text
 
+    # 0. Stash fenced code blocks first, then normalize multi-backtick inline spans
+    fences: list[str] = []
+    def _stash_fence(m: re.Match) -> str:
+        fences.append(m.group(0))
+        return f"\x00FENCE_{len(fences)-1}\x00"
+
+    text = re.sub(r"(```[\s\S]*?```)", _stash_fence, text)
+    # CommonMark uses `` `code` `` to escape backticks inside code spans.
+    # Telegram MarkdownV2 only supports single `code`. Normalize multi-backtick spans.
+    text = re.sub(r"``+\s*`?([^`\n]+?)`?\s*``+", r"`\1`", text)
+    for i, f in enumerate(fences):
+        text = text.replace(f"\x00FENCE_{len(fences)-1-i}\x00", f)
+
     # 1. Stash fenced code blocks and inline code so they remain untouched
     code_blocks: list[str] = []
     def _stash_code(m: re.Match) -> str:
