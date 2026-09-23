@@ -4,8 +4,6 @@ Minimalist, emoji-free Telegram UX plugin for [Hermes Agent](https://hermes-agen
 
 Provides developer-first formatting: clean monospace text tokens (`[+]`, `[i]`, `[!]`), syntax-highlighted tool progress streams with overflow limits, LaTeX math normalization to Unicode, and robust MarkdownV2 delivery.
 
-![hermes-telegram-minimal demo](assets/demo.gif)
-
 ---
 
 ## Features

@@ -527,60 +527,60 @@ def format_telegram_verbose_tool(tool_name: str, args: Optional[Dict[str, Any]],
 
 EMOJI_TOKEN_MAP = [
     # Gateway lifecycle notices -> [g]
-    (r"(?:⚠️?|⏳|♻️?|🔄)\s*(?=.*(?:[Gg]ateway|restarting|shutting down|before restart))", "`[g]` "),
-    (r"♻️?\s*", "`[g]` "),
+    (r"(?:⚠️?|⏳|♻️?|🔄)\s*(?=.*(?:[Gg]ateway|restarting|shutting down|before restart))", "[g] "),
+    (r"♻️?\s*", "[g] "),
     # Context compression & compaction notices -> [c]
-    (r"(?:ℹ️?|⚠️?|⏳|🗜️?)\s*(?=.*(?:[Cc]ompress|[Ss]ummary generation|[Cc]ompact))", "`[c]` "),
-    (r"🗜️?\s*", "`[c]` "),
+    (r"(?:ℹ️?|⚠️?|⏳|🗜️?)\s*(?=.*(?:[Cc]ompress|[Ss]ummary generation|[Cc]ompact))", "[c] "),
+    (r"🗜️?\s*", "[c] "),
     # Steering, redirecting & subagent delegation -> [>]
-    (r"⏩\s*", "`[>]` "),
-    (r"↪️?\s*", "`[>]` "),
-    (r"🔀\s*", "`[>]` "),
+    (r"⏩\s*", "[>] "),
+    (r"↪️?\s*", "[>] "),
+    (r"🔀\s*", "[>] "),
     # Memory, skill patches, reviews -> [m]
-    (r"💾\s*", "`[m]` "),
-    (r"🧠\s*", "`[m]` "),
-    (r"👁️?\s*", "`[m]` "),
-    (r"📝\s*(?=.*[Ss]kill)", "`[m]` "),
+    (r"💾\s*", "[m] "),
+    (r"🧠\s*", "[m] "),
+    (r"👁️?\s*", "[m] "),
+    (r"📝\s*(?=.*[Ss]kill)", "[m] "),
     # Standard status tokens
-    (r"✅\s*", "`[+]` "),
-    (r"✔\s*", "`[+]` "),
-    (r"✓\s*", "`[+]` "),
-    (r"✨\s*", "`[+]` "),
-    (r"🔒\s*", "`[+]` "),
-    (r"🔐\s*", "`[+]` "),
-    (r"➕\s*", "`[+]` "),
-    (r"❌\s*", "`[x]` "),
-    (r"✗\s*", "`[x]` "),
-    (r"✖\s*", "`[x]` "),
-    (r"✕\s*", "`[x]` "),
-    (r"⛔\s*", "`[x]` "),
-    (r"🛑\s*", "`[x]` "),
-    (r"⚠️?\s*", "`[!]` "),
-    (r"⚡\s*", "`[!]` "),
-    (r"⚕️?\s*", "`[!]` "),
-    (r"🟡\s*", "`[!]` "),
-    (r"⏸️?\s*", "`[!]` "),
-    (r"⏱️?\s*", "`[~]` "),
-    (r"⏳\s*", "`[~]` "),
-    (r"🔄\s*", "`[~]` "),
-    (r"⚙️?\s*", "`[~]` "),
-    (r"🔎\s*", "`[~]` "),
-    (r"💻\s*", "`[~]` "),
-    (r"ℹ️?\s*", "`[i]` "),
-    (r"💬\s*", "`[i]` "),
-    (r"💡\s*", "`[i]` "),
-    (r"📌\s*", "`[i]` "),
-    (r"📋\s*", "`[i]` "),
-    (r"✦\s*", "`[i]` "),
-    (r"🎭\s*", "`[i]` "),
-    (r"📊\s*", "`[i]` "),
-    (r"📚\s*", "`[i]` "),
-    (r"📖\s*", "`[i]` "),
-    (r"🤖\s*", "`[i]` "),
-    (r"🎙️?\s*", "`[i]` "),
-    (r"👀\s*", "`[i]` "),
-    (r"📝\s*", "`[i]` "),
-    (r"➖\s*", "`[-]` "),
+    (r"✅\s*", "[+] "),
+    (r"✔\s*", "[+] "),
+    (r"✓\s*", "[+] "),
+    (r"✨\s*", "[+] "),
+    (r"🔒\s*", "[+] "),
+    (r"🔐\s*", "[+] "),
+    (r"➕\s*", "[+] "),
+    (r"❌\s*", "[x] "),
+    (r"✗\s*", "[x] "),
+    (r"✖\s*", "[x] "),
+    (r"✕\s*", "[x] "),
+    (r"⛔\s*", "[x] "),
+    (r"🛑\s*", "[x] "),
+    (r"⚠️?\s*", "[!] "),
+    (r"⚡\s*", "[!] "),
+    (r"⚕️?\s*", "[!] "),
+    (r"🟡\s*", "[!] "),
+    (r"⏸️?\s*", "[!] "),
+    (r"⏱️?\s*", "[~] "),
+    (r"⏳\s*", "[~] "),
+    (r"🔄\s*", "[~] "),
+    (r"⚙️?\s*", "[~] "),
+    (r"🔎\s*", "[~] "),
+    (r"💻\s*", "[~] "),
+    (r"ℹ️?\s*", "[i] "),
+    (r"💬\s*", "[i] "),
+    (r"💡\s*", "[i] "),
+    (r"📌\s*", "[i] "),
+    (r"📋\s*", "[i] "),
+    (r"✦\s*", "[i] "),
+    (r"🎭\s*", "[i] "),
+    (r"📊\s*", "[i] "),
+    (r"📚\s*", "[i] "),
+    (r"📖\s*", "[i] "),
+    (r"🤖\s*", "[i] "),
+    (r"🎙️?\s*", "[i] "),
+    (r"👀\s*", "[i] "),
+    (r"📝\s*", "[i] "),
+    (r"➖\s*", "[-] "),
 ]
 
 LATEX_MAP = [
@@ -821,18 +821,12 @@ def _find_telegram_adapter_classes() -> list[type]:
     return classes
 
 
-def _install_telegram_adapter_hook(ctx: Any) -> None:
-    """Wrap TelegramAdapter format_message, send, and edit_message to clean emojis and notices."""
-    classes = _find_telegram_adapter_classes()
-    if not classes:
-        logger.debug("No TelegramAdapter classes found to hook")
-        return
-
-    for cls in classes:
-        orig_format = getattr(cls, "_orig_format_message_tg_ux", None)
-        if orig_format is None:
-            orig_format = cls.format_message
-            cls._orig_format_message_tg_ux = orig_format
+def _hook_adapter_class(cls: type) -> None:
+    """Safely hook a TelegramAdapter class to sanitize outgoing content and format markdown."""
+    orig_format = getattr(cls, "_orig_format_message_tg_ux", None)
+    if orig_format is None:
+        orig_format = cls.format_message
+        cls._orig_format_message_tg_ux = orig_format
 
         def _wrap_format(of: Any) -> Any:
             def clean_format_message(self: Any, content: str) -> str:
@@ -841,10 +835,10 @@ def _install_telegram_adapter_hook(ctx: Any) -> None:
 
         cls.format_message = _wrap_format(orig_format)
 
-        orig_send = getattr(cls, "_orig_send_tg_ux", None)
-        if orig_send is None:
-            orig_send = cls.send
-            cls._orig_send_tg_ux = orig_send
+    orig_send = getattr(cls, "_orig_send_tg_ux", None)
+    if orig_send is None:
+        orig_send = cls.send
+        cls._orig_send_tg_ux = orig_send
 
         def _wrap_send(osnd: Any) -> Any:
             async def clean_send(self: Any, chat_id: str, content: str, reply_to: Optional[str] = None, metadata: Optional[Dict[str, Any]] = None) -> Any:
@@ -855,10 +849,10 @@ def _install_telegram_adapter_hook(ctx: Any) -> None:
 
         cls.send = _wrap_send(orig_send)
 
-        orig_edit = getattr(cls, "_orig_edit_message_tg_ux", None)
-        if orig_edit is None:
-            orig_edit = cls.edit_message
-            cls._orig_edit_message_tg_ux = orig_edit
+    orig_edit = getattr(cls, "_orig_edit_message_tg_ux", None)
+    if orig_edit is None:
+        orig_edit = cls.edit_message
+        cls._orig_edit_message_tg_ux = orig_edit
 
         def _wrap_edit(oe: Any) -> Any:
             async def clean_edit_message(self: Any, chat_id: str, message_id: str, content: str, *, finalize: bool = False, metadata: Optional[Dict[str, Any]] = None) -> Any:
@@ -869,6 +863,47 @@ def _install_telegram_adapter_hook(ctx: Any) -> None:
 
         cls.edit_message = _wrap_edit(orig_edit)
 
+
+def _install_telegram_adapter_hook(ctx: Any) -> None:
+    """Wrap TelegramAdapter format_message, send, edit_message, and emit_warning to clean emojis and notices."""
+    for cls in _find_telegram_adapter_classes():
+        _hook_adapter_class(cls)
+
+    # 1. Hook BasePlatformAdapter.emit_warning so system notices (hygiene, gateway restart) are cleaned
+    try:
+        from gateway.platforms.base import BasePlatformAdapter
+        orig_emit = getattr(BasePlatformAdapter, "_orig_emit_warning_tg_ux", None)
+        if orig_emit is None:
+            orig_emit = BasePlatformAdapter.emit_warning
+            BasePlatformAdapter._orig_emit_warning_tg_ux = orig_emit
+
+            async def clean_emit_warning(self: Any, chat_id: str, content: str, *args: Any, **kwargs: Any) -> Any:
+                if content and getattr(self, "name", "") == "telegram":
+                    content = clean_telegram_content(content)
+                return await orig_emit(self, chat_id, content, *args, **kwargs)
+
+            BasePlatformAdapter.emit_warning = clean_emit_warning
+    except Exception:
+        pass
+
+    # 2. Hook platform_registry.create_adapter so dynamically materialized Telegram adapters get hooked
+    try:
+        from gateway.platform_registry import platform_registry
+        orig_create = getattr(platform_registry, "_orig_create_adapter_tg_ux", None)
+        if orig_create is None:
+            orig_create = platform_registry.create_adapter
+            platform_registry._orig_create_adapter_tg_ux = orig_create
+
+            def clean_create_adapter(name: str, config: Any, *args: Any, **kwargs: Any) -> Any:
+                adapter = orig_create(name, config, *args, **kwargs)
+                if name == "telegram" and adapter is not None:
+                    _hook_adapter_class(type(adapter))
+                return adapter
+
+            platform_registry.create_adapter = clean_create_adapter
+    except Exception:
+        pass
+
     def _uninstall_adapter_hook() -> None:
         for c in _find_telegram_adapter_classes():
             if hasattr(c, "_orig_format_message_tg_ux"):
@@ -877,6 +912,18 @@ def _install_telegram_adapter_hook(ctx: Any) -> None:
                 c.send = getattr(c, "_orig_send_tg_ux")
             if hasattr(c, "_orig_edit_message_tg_ux"):
                 c.edit_message = getattr(c, "_orig_edit_message_tg_ux")
+        try:
+            from gateway.platforms.base import BasePlatformAdapter
+            if hasattr(BasePlatformAdapter, "_orig_emit_warning_tg_ux"):
+                BasePlatformAdapter.emit_warning = getattr(BasePlatformAdapter, "_orig_emit_warning_tg_ux")
+        except Exception:
+            pass
+        try:
+            from gateway.platform_registry import platform_registry
+            if hasattr(platform_registry, "_orig_create_adapter_tg_ux"):
+                platform_registry.create_adapter = getattr(platform_registry, "_orig_create_adapter_tg_ux")
+        except Exception:
+            pass
 
     if hasattr(ctx, "on_unload"):
         ctx.on_unload(_uninstall_adapter_hook)
