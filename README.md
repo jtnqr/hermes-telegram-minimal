@@ -67,11 +67,24 @@ Run `/verbose` in chat at any time to cycle progress display modes (`off` → `n
 
 ---
 
+## Output Comparison
+
+| Default Output | telegram-minimal Output |
+|---|---|
+| `✨ Task completed successfully! 🚀` | `[+] Task completed successfully!` |
+| `💡 Information: checked 5 nodes` | `[i] Information: checked 5 nodes` |
+| `Formula: \omega = 2\pi f and \Delta x \rightarrow 0` | `Formula: ω = 2π f and Δ x → 0` |
+| Truncated single-line tool summary | Syntax-highlighted Python/diff/shell blocks |
+
+---
+
 ## Development & Testing
 
 Run unit tests:
 
 ```bash
+python3 -m unittest discover -s tests/ -v
+# or with pytest
 pytest tests/
 ```
 
@@ -79,4 +92,4 @@ pytest tests/
 
 ## License
 
-[MIT](LICENSE) © 2026 Julius Wicaksono (jtnqr)
+[MIT](LICENSE)
